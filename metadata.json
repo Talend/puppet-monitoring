@@ -1,0 +1,14 @@
+{
+  "name": "talend-monitoring",
+  "version": "0.1.0",
+  "author": "talend",
+  "summary": "Puppet Module for providing monitoring",
+  "license": "MIT",
+  "source": "https://github.com/Talend/puppet-cloudwatch",
+  "project_page": "https://github.com/Talend/puppet-cloudwatch",
+  "issues_url": "https://github.com/Talend/puppet-cloudwatch/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib", "version_requirement": ">= 1.0.0 < 5.0.0"}
+  ]
+}
+

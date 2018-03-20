@@ -1,0 +1,32 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  manifests_path: examples
+  hiera_data_path: hieradata
+  hiera_data_remote_path: /etc/puppet/hieradata
+  ignore_spec_fixtures: true
+  custom_facts:
+    aws_api_key: <%= ENV['AWS_ACCESS_KEY_ID']%>
+    aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY']%>
+
+transport:
+  name: sftp
+
+platforms:
+  - name: centos-7.2
+
+verifier:
+  name: serverspec
+  remote_exec: false
+  extra_flags: '--require spec_helper -I spec/acceptance'
+
+suites:
+  - name: default
+    provisioner:
+      manifest: init.pp
+    verifier:
+      patterns:
+        - 'spec/acceptance/**_spec.rb'
