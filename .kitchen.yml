@@ -4,10 +4,12 @@ driver:
 
 provisioner:
   name: puppet_apply
-  manifests_path: examples
-  hiera_data_path: hieradata
+  manifests_path: spec/acceptance/examples
+  hiera_config_path: spec/acceptance/hiera.yaml
+  hiera_data_path: spec/acceptance/hieradata
   hiera_data_remote_path: /etc/puppet/hieradata
   ignore_spec_fixtures: true
+  require_chef_for_busser: false
   custom_facts:
     aws_api_key: <%= ENV['AWS_ACCESS_KEY_ID']%>
     aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY']%>
@@ -16,7 +18,7 @@ transport:
   name: sftp
 
 platforms:
-  - name: centos-7.2
+  - name: centos-7.4
 
 verifier:
   name: serverspec

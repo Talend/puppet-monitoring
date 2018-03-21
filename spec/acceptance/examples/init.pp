@@ -1,0 +1,1 @@
+class { 'monitoring::node_exporter': }

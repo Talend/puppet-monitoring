@@ -1,0 +1,3 @@
+---
+monitoring::node_exporter::user: 'node_exporter'
+monitoring::node_exporter::version: '0.15.2'

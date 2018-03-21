@@ -1,9 +1,5 @@
 # Class: monitoring
 #
-# This module manages monitoring for talend organisation
+# This module manages monitoring
 #
-# Parameters:
-#
-class monitoring (){
-
-}
+class monitoring () {}

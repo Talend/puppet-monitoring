@@ -1,0 +1,14 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    camptocamp-systemd (1.1.1)
+      puppetlabs-stdlib (< 5.0.0, >= 4.13.1)
+    puppet-archive (2.3.0)
+      puppetlabs-stdlib (< 5.0.0, >= 4.13.1)
+    puppetlabs-stdlib (4.25.0)
+
+DEPENDENCIES
+  camptocamp-systemd (< 2.0.0, >= 1.1.1)
+  puppet-archive (< 3.0.0, >= 2.2.0)
+  puppetlabs-stdlib (< 5.0.0, >= 4.20.0)
+
