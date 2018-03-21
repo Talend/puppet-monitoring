@@ -15,5 +15,4 @@ describe 'node_exporter' do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should include 'node_filesystem_size' }
   end
-
 end
