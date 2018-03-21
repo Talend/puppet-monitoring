@@ -12,8 +12,8 @@ class monitoring::node_exporter (
 ) {
 
   $exporter_bin_dir = "/opt/${exporter_name}-${version}.${os}-${arch}"
-  $exporter_service_path = "/usr/lib/systemd/system/${exporter_name}.service"
-  $exporter_service_env_path = "/etc/sysconfig/${exporter_name}"
+  $exporter_systemd_service_path = "/usr/lib/systemd/system/${exporter_name}.service"
+  $exporter_systemd_environement_file_path = "/etc/sysconfig/${exporter_name}"
 
   user { $user :
     ensure  => 'present',
@@ -26,12 +26,12 @@ class monitoring::node_exporter (
     extract_path    => '/opt',
     source          => "https://github.com/prometheus/${exporter_name}/releases/download/v${version}/${exporter_name}-${version}.${os}-${arch}.${download_extension}",
     checksum_verify => false,
-    creates         => "${exporter_bin_dir}",
+    creates         => $exporter_bin_dir,
     cleanup         => true,
   }
 
 
-  file { $exporter_service_path:
+  file { $exporter_systemd_service_path:
     ensure  => 'present',
     content => template("monitoring/${exporter_name}.service.erb"),
     owner   => $user,
@@ -39,7 +39,7 @@ class monitoring::node_exporter (
     require => User[$user],
   }
 
-  file { $exporter_service_env_path:
+  file { $exporter_systemd_environement_file_path:
     ensure  => 'present',
     content => template("monitoring/${exporter_name}.env.erb"),
     owner   => $user,
@@ -50,6 +50,6 @@ class monitoring::node_exporter (
   service { "${exporter_name}.service":
     ensure  => $service_ensure,
     enable  => true,
-    require => File[$exporter_service_path, $exporter_service_env_path],
+    require => File[$exporter_systemd_service_path, $exporter_systemd_environement_file_path],
   }
 }
