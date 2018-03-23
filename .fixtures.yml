@@ -2,5 +2,8 @@ fixtures:
   symlinks:
     monitoring: '#{source_dir}'
   forge_modules:
-    stdlib:     "puppetlabs/stdlib"
-    archive:    "puppet/archive"
+    stdlib:
+      repo: "puppetlabs/stdlib"
+    archive:
+      repo: "puppet/archive"
+      ref: "1.3.0"

@@ -13,10 +13,11 @@ You need the bundler gem
 And then 
 
 `bundle install`
+`bundle exec librarian-puppet install --clean`
 
 ### Unit Test
 
-`bundle exec rake test`
+`bundle exec rake lint validate test`
 
 ### Acceptence test
 
