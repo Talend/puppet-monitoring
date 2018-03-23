@@ -16,3 +16,4 @@ coverage/
 *.pyc
 .cache
 .venv
+Puppetfile.lock
