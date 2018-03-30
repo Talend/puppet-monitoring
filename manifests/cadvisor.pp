@@ -1,0 +1,19 @@
+# Class: monitoring::cadvisor
+#
+# Parameters:
+class monitoring::cadvisor (
+  $version,
+  $user    = 'cadvisor',
+  $exporter_name = 'cadvisor',
+  $service_ensure = 'running',
+  $port = 9500,
+) {
+
+  monitoring::daemon { $exporter_name:
+    user              => $user,
+    version           => $version,
+    runtime_options   => "--port ${port}",
+    real_download_url => "https://github.com/google/cadvisor/releases/download/v${version}/cadvisor",
+    service_ensure    => $service_ensure,
+  }
+}

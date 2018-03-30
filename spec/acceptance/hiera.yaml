@@ -6,4 +6,4 @@
   - common
 
 :yaml:
-  :datadir: "%{settings::confdir}/hieradata"
+  :datadir: "/tmp/kitchen/hiera"

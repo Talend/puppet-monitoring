@@ -1,13 +1,13 @@
 [Unit]
-Description=Prometheus <%= @exporter_name %>
+Description=Prometheus <%= @name %>
 Wants=basic.target
 After=basic.target network.target
 
 [Service]
 User=<%= @user %>
 Group=<%= @group %>
-EnvironmentFile=/etc/sysconfig/<%= @exporter_name%>
-ExecStart=/opt/<%= @exporter_name %>-<%= @version %>.<%= @os %>-<%= @arch %>/<%= @exporter_name %> $OPTION
+EnvironmentFile=/etc/sysconfig/<%= @name%>
+ExecStart=<%= @exporter_bin_path %> $OPTIONS
 
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
