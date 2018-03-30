@@ -1,4 +1,4 @@
-# Class: monitoring::node_exporter
+# Class: monitoring::daemon
 #
 # Parameters:
 define monitoring::daemon (
@@ -58,8 +58,6 @@ define monitoring::daemon (
       require => Archive[$exporter_bin_path],
     }
   }
-
-
 
   file { $exporter_systemd_service_path:
     ensure  => 'present',

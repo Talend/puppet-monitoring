@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'monitoring::node_exporter' do
   let(:facts) {{ :osfamily => 'RedHat'}}
+  let(:params) {{ :version => '0.15.2'}}
   context 'with default values for all parameters' do
     it {
       should compile
