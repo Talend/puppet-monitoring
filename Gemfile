@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'puppet', '~> 3.8'
 gem 'rake'
+gem 'public_suffix', '~> 2'
 
 group :test do
   gem "facterdb", '0.3.12'
