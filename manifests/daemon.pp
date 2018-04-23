@@ -1,6 +1,5 @@
 # Class: monitoring::daemon
 #
-# Parameters:
 define monitoring::daemon (
   $user,
   $version,
@@ -9,6 +8,7 @@ define monitoring::daemon (
   $os = 'linux',
   $arch = 'amd64',
   $service_ensure = 'running',
+  $service_dependencies = '',
   $runtime_options = '',
 ) {
 
@@ -20,7 +20,6 @@ define monitoring::daemon (
 
   user { $user :
     ensure  => 'present',
-    comment => "User for ${name} Agent",
   }
 
   if $download_extension != '' {
