@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+ruby '~> 2.0'
+
 gem 'puppet', '~> 3.8'
 gem 'rake'
 gem 'public_suffix', '~> 2'
