@@ -16,5 +16,6 @@ class monitoring::cadvisor (
     real_download_url    => "https://github.com/google/cadvisor/releases/download/v${version}/cadvisor",
     service_ensure       => $service_ensure,
     service_dependencies => 'docker.service',
+    user_extras_groups   => 'docker',
   }
 }

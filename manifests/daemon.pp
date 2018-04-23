@@ -4,6 +4,7 @@ define monitoring::daemon (
   $user,
   $version,
   $real_download_url,
+  $user_extras_groups = [],
   $download_extension = '',
   $os = 'linux',
   $arch = 'amd64',
@@ -21,6 +22,7 @@ define monitoring::daemon (
   user { $user :
     ensure  => 'present',
     comment => "User for ${name} Agent",
+    groups  => $user_extras_groups,
   }
 
   if $download_extension != '' {

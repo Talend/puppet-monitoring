@@ -2,9 +2,9 @@ source 'http://rubygems.org'
 
 ruby '~> 2.0'
 
+gem 'public_suffix', '~> 2'
 gem 'puppet', '~> 3.8'
 gem 'rake'
-gem 'public_suffix', '~> 2'
 
 group :test do
   gem 'metadata-json-lint'
@@ -31,8 +31,8 @@ group :development do
 end
 
 group :system_tests do
-  gem 'kitchen-puppet'
   gem 'kitchen-ec2', '1.3.2'
+  gem 'kitchen-puppet'
   gem 'kitchen-sync'
   gem 'kitchen-verifier-serverspec'
   gem 'librarian-puppet'
