@@ -33,6 +33,7 @@ end
 
 group :system_tests do
   gem 'kitchen-puppet'
+  gem 'kitchen-ec2', '1.3.2'
   gem 'kitchen-sync'
   gem 'kitchen-verifier-serverspec'
   gem 'librarian-puppet'
