@@ -1,10 +1,12 @@
 source 'http://rubygems.org'
 
+ruby '~> 2.0'
+
+gem 'public_suffix', '~> 2'
 gem 'puppet', '~> 3.8'
 gem 'rake'
 
 group :test do
-  gem "facterdb", '0.3.12'
   gem 'metadata-json-lint'
   gem "puppet-lint-absolute_classname-check"
   gem "puppet-lint-classes_and_types_beginning_with_digits-check"
@@ -29,6 +31,7 @@ group :development do
 end
 
 group :system_tests do
+  gem 'kitchen-ec2', '1.3.2'
   gem 'kitchen-puppet'
   gem 'kitchen-sync'
   gem 'kitchen-verifier-serverspec'
@@ -36,5 +39,5 @@ group :system_tests do
   gem 'net-ssh'
   gem 'rspec_junit_formatter'
   gem 'serverspec'
-  gem 'test-kitchen'
+  gem 'test-kitchen', '1.16.0'
 end
