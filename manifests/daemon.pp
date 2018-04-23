@@ -1,14 +1,15 @@
 # Class: monitoring::daemon
 #
-# Parameters:
 define monitoring::daemon (
   $user,
   $version,
   $real_download_url,
+  $user_extra_groups = [],
   $download_extension = '',
   $os = 'linux',
   $arch = 'amd64',
   $service_ensure = 'running',
+  $service_dependencies = '',
   $runtime_options = '',
 ) {
 
@@ -19,8 +20,8 @@ define monitoring::daemon (
   $exporter_bin_path = "${exporter_bin_dir}/${name}"
 
   user { $user :
-    ensure  => 'present',
-    comment => "User for ${name} Agent",
+    ensure => 'present',
+    groups => $user_extra_groups,
   }
 
   if $download_extension != '' {

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'monitoring::cadvisor' do
+  let(:pre_condition) { 'user {docker:}' }
   let(:facts) {{ :osfamily => 'RedHat'}}
   let(:params) {{ :version => '0.29.0'}}
   context 'with default values for all parameters' do

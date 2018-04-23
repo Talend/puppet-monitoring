@@ -1,11 +1,6 @@
 require 'spec_helper'
 
 describe 'cadvisor' do
-  
-  describe user('cadvisor') do
-    it { should exist }
-  end
-
   describe service('cadvisor.service') do
     it { should be_enabled }
     it { should be_running }
