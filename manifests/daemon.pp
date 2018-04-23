@@ -1,6 +1,5 @@
 # Class: monitoring::daemon
 #
-# Parameters:
 define monitoring::daemon (
   $user,
   $version,
@@ -9,7 +8,11 @@ define monitoring::daemon (
   $os = 'linux',
   $arch = 'amd64',
   $service_ensure = 'running',
+  $service_dependencies = '',
   $runtime_options = '',
+  $checksum_verify = false,
+  $checksum      = '',
+  $checksum_type = 'sha512',
 ) {
 
   $exporter_systemd_service_path = "/usr/lib/systemd/system/${name}.service"
@@ -19,8 +22,7 @@ define monitoring::daemon (
   $exporter_bin_path = "${exporter_bin_dir}/${name}"
 
   user { $user :
-    ensure  => 'present',
-    comment => "User for ${name} Agent",
+    ensure => 'present',
   }
 
   if $download_extension != '' {
@@ -29,7 +31,9 @@ define monitoring::daemon (
       extract         => true,
       extract_path    => '/opt',
       source          => $real_download_url,
-      checksum_verify => false,
+      checksum_verify => $checksum_verify,
+      checksum_type   => $checksum_type,
+      checksum        => $checksum,
       creates         => $exporter_bin_path,
       cleanup         => true,
       require         => User[$user],
@@ -46,7 +50,9 @@ define monitoring::daemon (
     archive { $exporter_bin_path:
       ensure          => present,
       source          => $real_download_url,
-      checksum_verify => false,
+      checksum_verify => $checksum_verify,
+      checksum_type   => $checksum_type,
+      checksum        => $checksum,
       user            => $user,
       group           => $user,
       require         => File[$exporter_bin_dir],

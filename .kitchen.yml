@@ -4,6 +4,7 @@ driver:
 
 provisioner:
   name: puppet_apply
+  custom_pre_install_command: 'sudo yum install -y docker'
   manifests_path: spec/acceptance/examples
   hiera_config_path: spec/acceptance/hiera.yaml
   hiera_data_path: spec/acceptance/hieradata
