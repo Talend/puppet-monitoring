@@ -7,7 +7,6 @@ gem 'rake'
 gem 'public_suffix', '~> 2'
 
 group :test do
-  gem "facterdb", '0.3.12'
   gem 'metadata-json-lint'
   gem "puppet-lint-absolute_classname-check"
   gem "puppet-lint-classes_and_types_beginning_with_digits-check"
@@ -40,5 +39,5 @@ group :system_tests do
   gem 'net-ssh'
   gem 'rspec_junit_formatter'
   gem 'serverspec'
-  gem 'test-kitchen'
+  gem 'test-kitchen', '1.16.0'
 end
