@@ -13,6 +13,7 @@ define monitoring::daemon (
   $checksum_verify = false,
   $checksum      = '',
   $checksum_type = 'sha512',
+  $envs = {}
 ) {
 
   $exporter_systemd_service_path = "/usr/lib/systemd/system/${name}.service"
@@ -37,6 +38,7 @@ define monitoring::daemon (
       creates         => $exporter_bin_path,
       cleanup         => true,
       require         => User[$user],
+      before          => Service["${name}.service"],
     }
   } else {
     file { $exporter_bin_dir:
@@ -62,6 +64,7 @@ define monitoring::daemon (
       ensure  => present,
       mode    => '0755',
       require => Archive[$exporter_bin_path],
+      before  => Service["${name}.service"],
     }
   }
 
