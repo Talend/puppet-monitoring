@@ -11,11 +11,12 @@ class monitoring::mongodb_exporter (
 ) {
 
   monitoring::daemon { $exporter_name:
-    user               => $user,
-    version            => $version,
-    download_extension => 'tar.gz',
-    real_download_url  => "https://github.com/percona/${exporter_name}/releases/download/v${version}/${exporter_name}-${version}.linux-amd64.tar.gz",
-    runtime_options    => "-web.listen-address :${port}",
-    envs               => {'MONGODB_URL' => $mongodb_url},
+    user                 => $user,
+    version              => $version,
+    download_extension   => 'tar.gz',
+    real_download_url    => "https://github.com/percona/${exporter_name}/releases/download/v${version}/${exporter_name}-${version}.linux-amd64.tar.gz",
+    runtime_options      => "-web.listen-address :${port}",
+    envs                 => {'MONGODB_URL' => $mongodb_url},
+    service_dependencies => 'mongod.service',
   }
 }
