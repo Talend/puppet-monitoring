@@ -17,6 +17,6 @@ class monitoring::mongodb_exporter (
     real_download_url    => "https://github.com/percona/${exporter_name}/releases/download/v${version}/${exporter_name}-${version}.linux-amd64.tar.gz",
     runtime_options      => "-web.listen-address :${port}",
     envs                 => {'MONGODB_URL' => $mongodb_url},
-    service_dependencies => 'cloud-final.service mongod.service',
+    service_dependencies => 'mongod.service',
   }
 }
