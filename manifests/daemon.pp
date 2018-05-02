@@ -8,6 +8,7 @@ define monitoring::daemon (
   $os = 'linux',
   $arch = 'amd64',
   $service_ensure = 'running',
+  $service_enable = true,
   $service_dependencies = '',
   $runtime_options = '',
   $checksum_verify = false,
@@ -86,7 +87,7 @@ define monitoring::daemon (
 
   service { "${name}.service":
     ensure  => $service_ensure,
-    enable  => true,
+    enable  => $service_enable,
     require => File[$exporter_systemd_service_path, $exporter_systemd_environement_file_path],
   }
 }

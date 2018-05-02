@@ -7,6 +7,7 @@ class monitoring::cadvisor (
   $user    = 'cadvisor',
   $exporter_name = 'cadvisor',
   $service_ensure = 'running',
+  $service_enable = true,
   $port = 9500,
 ) {
 
@@ -19,6 +20,7 @@ class monitoring::cadvisor (
     runtime_options      => "--port ${port}",
     real_download_url    => "https://github.com/google/cadvisor/releases/download/v${version}/cadvisor",
     service_ensure       => $service_ensure,
+    service_enable       => $service_enable,
     service_dependencies => 'docker.service',
   }
 }
