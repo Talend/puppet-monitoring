@@ -9,7 +9,7 @@ describe 'monitoring::mongodb_exporter' do
       is_expected.to contain_user('mongodb_exporter')
       is_expected.to contain_file('/usr/lib/systemd/system/mongodb_exporter.service')
       is_expected.to contain_file('/etc/sysconfig/mongodb_exporter')
-      is_expected.to contain_archive('/tmp/mongodb_exporter-0.3.1.linux-amd64.tar.gz')
+      is_expected.to contain_wget__fetch('/tmp/mongodb_exporter-0.3.1.linux-amd64.tar.gz')
       is_expected.to contain_service('mongodb_exporter.service')
     }
   end
