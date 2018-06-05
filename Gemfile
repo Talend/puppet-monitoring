@@ -38,6 +38,7 @@ group :system_tests do
   gem 'kitchen-verifier-serverspec'
   gem 'librarian-puppet'
   gem 'net-ssh'
+  gem 'rainbow', '2.2.2'
   gem 'rspec_junit_formatter'
   gem 'serverspec'
   gem 'test-kitchen', '1.16.0'
