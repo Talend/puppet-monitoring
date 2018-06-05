@@ -33,7 +33,7 @@ end
 group :system_tests do
   gem 'mixlib-shellout', '2.2.7'
   gem 'kitchen-ec2', '1.3.2'
-  gem 'kitchen-puppet'
+  gem 'kitchen-puppet', '3.3.1'
   gem 'kitchen-sync'
   gem 'kitchen-verifier-serverspec'
   gem 'librarian-puppet'
