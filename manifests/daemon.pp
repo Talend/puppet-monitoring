@@ -23,23 +23,24 @@ define monitoring::daemon (
   $exporter_bin_dir = "/opt/${name}-${version}.${os}-${arch}"
   $exporter_bin_path = "${exporter_bin_dir}/${name}"
 
+  ensure_packages(['wget'])
+
   user { $user :
     ensure => 'present',
   }
 
   if $download_extension != '' {
-    archive { "/tmp/${name}-${version}.${os}-${arch}.${download_extension}":
-      ensure          => present,
-      extract         => true,
-      extract_path    => '/opt',
-      source          => $real_download_url,
-      checksum_verify => $checksum_verify,
-      checksum_type   => $checksum_type,
-      checksum        => $checksum,
-      creates         => $exporter_bin_path,
-      cleanup         => true,
-      require         => User[$user],
-      before          => Service["${name}.service"],
+    wget::fetch{ "/tmp/${name}-${version}.${os}-${arch}.${download_extension}":
+      source      => $real_download_url,
+      destination => "/tmp/${name}-${version}.${os}-${arch}.${download_extension}",
+      before      => Exec["${name}-untar"],
+    }
+
+    exec{ "${name}-untar":
+      command => "tar zxf /tmp/${name}-${version}.${os}-${arch}.${download_extension} --directory /opt",
+      creates => $exporter_bin_path,
+      path    => ['/bin','/usr/bin'],
+      before  => Service["${name}.service"],
     }
   } else {
     file { $exporter_bin_dir:
@@ -50,21 +51,15 @@ define monitoring::daemon (
       require => User[$user],
     }
 
-    archive { $exporter_bin_path:
-      ensure          => present,
-      source          => $real_download_url,
-      checksum_verify => $checksum_verify,
-      checksum_type   => $checksum_type,
-      checksum        => $checksum,
-      user            => $user,
-      group           => $user,
-      require         => File[$exporter_bin_dir],
+    wget::fetch{ $exporter_bin_path:
+      source      => $real_download_url,
+      destination => $exporter_bin_path,
     }
 
     file { $exporter_bin_path:
       ensure  => present,
       mode    => '0755',
-      require => Archive[$exporter_bin_path],
+      require => Wget::Fetch[$exporter_bin_path],
       before  => Service["${name}.service"],
     }
   }
