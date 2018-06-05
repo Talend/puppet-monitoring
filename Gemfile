@@ -31,6 +31,7 @@ group :development do
 end
 
 group :system_tests do
+  gem 'mixlib-shellout', '2.2.7'
   gem 'kitchen-ec2', '1.3.2'
   gem 'kitchen-puppet'
   gem 'kitchen-sync'
