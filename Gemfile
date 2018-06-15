@@ -16,10 +16,10 @@ group :test do
   gem "puppet-lint-unquoted_string-check"
   gem "puppet-lint-version_comparison-check"
   gem 'puppetlabs_spec_helper'
-  gem "rspec"
-  gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git'
+  gem 'rspec', '3.7.0'
+  gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git', :tag => 'v2.6.11'
   gem "rspec-puppet-facts"
-  gem 'rubocop'
+  gem 'rubocop', '0.50.0'
   gem 'semantic_puppet'
   gem 'simplecov', '>= 0.11.0'
   gem 'simplecov-console'

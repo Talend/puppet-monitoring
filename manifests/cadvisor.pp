@@ -17,12 +17,10 @@ class monitoring::cadvisor (
     checksum_verify      => true,
     checksum_type        => 'sha256',
     checksum             => $version_checksum,
-    runtime_options      => "--port ${port}",
+    runtime_options      => "--port ${port} --docker_only=true",
     real_download_url    => "https://github.com/google/cadvisor/releases/download/v${version}/cadvisor",
     service_ensure       => $service_ensure,
     service_enable       => $service_enable,
     service_dependencies => 'docker.service',
   }
 }
-
-#SHA256: f5c8deb31eb12cae38007f0f4a208e0b9ba2b2ad6a1c9610b32d113221880d4e
