@@ -70,6 +70,7 @@ define monitoring::daemon (
     owner   => $user,
     group   => $user,
     require => User[$user],
+    notify  => Service["${name}.service"],
   }
 
   file { $exporter_systemd_environement_file_path:
@@ -78,6 +79,7 @@ define monitoring::daemon (
     owner   => $user,
     group   => $user,
     require => User[$user],
+    notify  => Service["${name}.service"],
   }
 
   service { "${name}.service":
