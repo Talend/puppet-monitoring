@@ -9,3 +9,5 @@ monitoring::cadvisor::version_checksum: 'f5c8deb31eb12cae38007f0f4a208e0b9ba2b2a
 monitoring::cadvisor::port: 9500
 
 monitoring::mongodb_exporter::version: '0.3.1'
+
+monitoring::jmx_exporter::jmx_exporter_service: 'kafka'
