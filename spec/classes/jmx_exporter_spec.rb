@@ -6,8 +6,9 @@ describe 'monitoring::jmx_exporter' do
     it {
       should compile
       is_expected.to contain_user('jmx_exporter')
-      is_expected.to contain_file('/opt/jmx_exporter-0.3.1/jmx_prometheus_javaagent-0.3.1.jar')
+      is_expected.to contain_file('/opt/jmx_exporter-0.3.1')
       is_expected.to contain_file('/opt/jmx_exporter-0.3.1/kafka.yaml')
+      is_expected.to contain_wget__fetch('jmx_prometheus_javaagent-0.3.1.jar')
     }
   end
 end
