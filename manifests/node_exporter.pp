@@ -15,7 +15,7 @@ class monitoring::node_exporter (
     version            => $version,
     download_extension => 'tar.gz',
     real_download_url  => "https://github.com/prometheus/${exporter_name}/releases/download/v${version}/${exporter_name}-${version}.linux-amd64.tar.gz",
-    runtime_options    => "--web.listen-address=:${port}",
+    runtime_options    => "--web.listen-address=:${port} --collector.filesystem.ignored-mount-points "^/(var/lib/docker/)|(run/docker/netns/).*"",
     service_ensure     => $service_ensure,
     service_enable     => $service_enable,
   }
