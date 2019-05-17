@@ -18,9 +18,15 @@ class monitoring::jmx_exporter (
     ensure => 'present',
   }
 
+  file { $dest_path:
+    ensure => directory,
+    owner  => root,
+    group  => root,
+    mode   => '0755',
+  } ->
+
   file { $exporter_dir:
     ensure  => directory,
-    recurse => true,
     owner   => $user,
     group   => $user,
     mode    => '0755',
