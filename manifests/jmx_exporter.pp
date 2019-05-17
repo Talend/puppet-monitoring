@@ -20,6 +20,7 @@ class monitoring::jmx_exporter (
 
   file { $exporter_dir:
     ensure  => directory,
+    recurse => true,
     owner   => $user,
     group   => $user,
     mode    => '0755',
