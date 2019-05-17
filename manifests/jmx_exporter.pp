@@ -5,7 +5,7 @@ class monitoring::jmx_exporter (
   $version = '0.3.1',
   $user    = 'jmx_exporter',
   $exporter_name = 'jmx_exporter',
-  $jmx_exporter_service = undef,
+  $jmx_exporter_service = 'default',
 ) {
 
   $exporter_dir = "/opt/${exporter_name}-${version}"
