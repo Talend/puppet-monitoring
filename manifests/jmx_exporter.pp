@@ -4,11 +4,12 @@
 class monitoring::jmx_exporter (
   $version = '0.3.1',
   $user    = 'jmx_exporter',
+  $dest_path = '/opt',
   $exporter_name = 'jmx_exporter',
   $jmx_exporter_service = 'default',
 ) {
 
-  $exporter_dir = "/opt/${exporter_name}-${version}"
+  $exporter_dir = "${dest_path}/${exporter_name}-${version}"
   $config_file = "${exporter_dir}/${jmx_exporter_service}.yaml"
 
   include ::wget
