@@ -23,7 +23,9 @@ define monitoring::daemon (
   $exporter_bin_dir = "/opt/${name}-${version}.${os}-${arch}"
   $exporter_bin_path = "${exporter_bin_dir}/${name}"
 
-  include wget
+  if !defined('::wget') {
+    class {'::wget':}
+  }
 
   user { $user :
     ensure => 'present',

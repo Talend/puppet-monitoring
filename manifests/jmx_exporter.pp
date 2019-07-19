@@ -11,7 +11,7 @@ class monitoring::jmx_exporter (
   $exporter_dir = "/opt/${exporter_name}-${version}"
   $config_file = "${exporter_dir}/${jmx_exporter_service}.yaml"
 
-  ensure_packages(['wget'])
+  include ::wget
 
   user { $user :
     ensure => 'present',
