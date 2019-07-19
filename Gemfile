@@ -23,6 +23,7 @@ group :test do
   gem 'semantic_puppet'
   gem 'simplecov', '>= 0.11.0'
   gem 'simplecov-console'
+  gem 'parallel', '1.13.0'
 end
 
 group :development do

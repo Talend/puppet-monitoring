@@ -1,6 +1,6 @@
 {
   "name": "talend-monitoring",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "talend",
   "summary": "Puppet Module for providing monitoring",
   "license": "MIT",
