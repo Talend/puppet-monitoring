@@ -2,7 +2,7 @@
 #
 # Parameters:
 class monitoring::jmx_exporter (
-  $version = '0.3.1',
+  $version = '0.12.0',
   $user    = 'jmx_exporter',
   $exporter_name = 'jmx_exporter',
   $jmx_exporter_service = undef,
