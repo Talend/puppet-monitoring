@@ -4,7 +4,7 @@ ruby '~> 2.0'
 
 gem 'public_suffix', '~> 2'
 gem 'puppet', '~> 3.8'
-gem 'rake' , '~> 10.4.2'
+gem 'rake' , '~> 12.3.3'
 
 group :test do
   gem 'metadata-json-lint'
