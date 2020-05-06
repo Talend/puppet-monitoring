@@ -16,7 +16,7 @@ group :test do
   gem "puppet-lint-unquoted_string-check", '1.0.0'
   gem "puppet-lint-version_comparison-check", '0.2.1'
   gem 'puppetlabs_spec_helper', '2.14.1'
-  gem 'rspec', '3.7.0'
+  gem 'rspec', '3.8.0'
   gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git', :tag => 'v2.6.11'
   gem "rspec-puppet-facts", '1.9.2'
   gem 'rubocop', '0.50.0'
