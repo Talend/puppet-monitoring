@@ -10,8 +10,6 @@ describe 'monitoring::cadvisor' do
     }
   end
   context 'with default values for all parameters' do
-    it {
-      should compile
-    }
+    it {should compile}
   end
 end
