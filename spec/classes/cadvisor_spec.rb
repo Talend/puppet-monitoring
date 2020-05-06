@@ -10,12 +10,10 @@ describe 'monitoring::cadvisor' do
     }
   end
   context 'with default values for all parameters' do
-    it {
-      should compile
-      is_expected.to contain_file('/usr/lib/systemd/system/cadvisor.service')
-      is_expected.to contain_file('/etc/sysconfig/cadvisor')
-      is_expected.to contain_file('/opt/cadvisor-0.29.0.linux-amd64')
-      is_expected.to contain_service('cadvisor.service')
-    }
+    it 'should compile'
+    is_expected.to contain_file('/usr/lib/systemd/system/cadvisor.service')
+    is_expected.to contain_file('/etc/sysconfig/cadvisor')
+    is_expected.to contain_file('/opt/cadvisor-0.29.0.linux-amd64')
+    is_expected.to contain_service('cadvisor.service')
   end
 end
