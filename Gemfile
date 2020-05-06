@@ -8,7 +8,7 @@ gem 'rake' , '~> 12.3'
 
 group :test do
   gem 'metadata-json-lint'
-  gem "puppet-lint-absolute_classname-check", '>=2.0.0'
+  gem "puppet-lint-absolute_classname-check", '<2.0.0'
   gem "puppet-lint-classes_and_types_beginning_with_digits-check"
   gem "puppet-lint-leading_zero-check"
   gem 'puppet-lint-resource_reference_syntax'
