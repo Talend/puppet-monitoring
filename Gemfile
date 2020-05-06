@@ -18,6 +18,7 @@ group :test do
   gem 'puppetlabs_spec_helper', '2.14.1'
   gem 'rspec', '3.7.0'
 
+  gem "rspec-puppet-facts", '1.9.2'
   gem 'rubocop', '0.50.0'
   gem 'semantic_puppet', '1.0.2'
   gem 'simplecov', '0.17.1'
