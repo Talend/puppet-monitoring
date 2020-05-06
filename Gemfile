@@ -2,12 +2,12 @@ source 'http://rubygems.org'
 
 ruby '~> 2.0'
 
-gem 'public_suffix', '~> 2'
-gem 'puppet', '~> 3.8'
-gem 'rake' , '~> 12.3'
+gem 'public_suffix', '2.0.5'
+gem 'puppet', '3.8.7'
+gem 'rake' , '12.3.3'
 
 group :test do
-  gem 'metadata-json-lint'
+  gem 'metadata-json-lint', '2.3.0'
   gem "puppet-lint-absolute_classname-check", '1.0.0'
   gem "puppet-lint-classes_and_types_beginning_with_digits-check", '0.1.2'
   gem "puppet-lint-leading_zero-check", '0.1.1'
@@ -21,8 +21,8 @@ group :test do
   gem "rspec-puppet-facts", '1.9.2'
   gem 'rubocop', '0.50.0'
   gem 'semantic_puppet', '1.0.2'
-  gem 'simplecov', '>= 0.11.0'
-  gem 'simplecov-console'
+  gem 'simplecov', '0.17.1'
+  gem 'simplecov-console', '0.7.2'
   gem 'parallel', '1.13.0'
 end
 
