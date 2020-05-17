@@ -2,27 +2,27 @@ source 'http://rubygems.org'
 
 ruby '~> 2.0'
 
-gem 'public_suffix', '~> 2'
-gem 'puppet', '~> 3.8'
-gem 'rake'
+gem 'public_suffix', '2.0.5'
+gem 'puppet', '3.8.7'
+gem 'rake' , '12.3.3'
 
 group :test do
-  gem 'metadata-json-lint'
-  gem "puppet-lint-absolute_classname-check"
-  gem "puppet-lint-classes_and_types_beginning_with_digits-check"
-  gem "puppet-lint-leading_zero-check"
-  gem 'puppet-lint-resource_reference_syntax'
-  gem "puppet-lint-trailing_comma-check"
-  gem "puppet-lint-unquoted_string-check"
-  gem "puppet-lint-version_comparison-check"
-  gem 'puppetlabs_spec_helper'
+  gem 'metadata-json-lint', '2.3.0'
+  gem "puppet-lint-absolute_classname-check", '1.0.0'
+  gem "puppet-lint-classes_and_types_beginning_with_digits-check", '0.1.2'
+  gem "puppet-lint-leading_zero-check", '0.1.1'
+  gem 'puppet-lint-resource_reference_syntax', '1.1.0'
+  gem "puppet-lint-trailing_comma-check", '0.4.2'
+  gem "puppet-lint-unquoted_string-check", '1.0.0'
+  gem "puppet-lint-version_comparison-check", '0.2.1'
+  gem 'puppetlabs_spec_helper', '2.14.1'
   gem 'rspec', '3.7.0'
   gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git', :tag => 'v2.6.11'
-  gem "rspec-puppet-facts"
+  gem "rspec-puppet-facts", '1.9.2'
   gem 'rubocop', '0.50.0'
-  gem 'semantic_puppet'
-  gem 'simplecov', '>= 0.11.0'
-  gem 'simplecov-console'
+  gem 'semantic_puppet', '1.0.2'
+  gem 'simplecov', '0.17.1'
+  gem 'simplecov-console', '0.7.2'
   gem 'parallel', '1.13.0'
 end
 
